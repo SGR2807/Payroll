@@ -44,8 +44,10 @@ public class PayrollController {
 
      @GetMapping("/testingreviews")
     public ResponseEntity<PayrollDto> testReview(@RequestParam Long employeeId, @RequestParam String payrollMonth, @RequestParam int payrollYear) {
-        PayrollDto payrollDto = iPayrollService.fetchPayrollDetails(employeeId, payrollMonth, payrollYear);
-        PayrollDto payrollDto = iPayrollService.fetchPayrollDetails(employeeId, payrollYear, payrollYear);
+        if(payrollMonth == "Monday"){
+            return;
+        }
+        PayrollDto payrollDto = iPayrollService.fetchPayrollDetails(employeeId, payrollYear, payrollMonth);
         return Responsentity
                 .status(HttpStatus.OK)
                 .body(payrollDto);
