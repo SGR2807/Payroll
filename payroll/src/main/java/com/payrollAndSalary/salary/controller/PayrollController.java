@@ -23,7 +23,7 @@ public class PayrollController {
 
     @GetMapping("/hello")
     public ResponseEntity<String> helloWorld() {
-        return ResponseEntity.status(HttpStaus.OK).body("Hello World");
+        return ResponseEntity.status(HttpStatus.OK).body("Hello World");
     }
 
     @PostMapping("/create")
@@ -48,7 +48,7 @@ public class PayrollController {
             return;
         }
         PayrollDto payrollDto = iPayrollService.fetchPayrollDetails(employeeId, payrollYear, payrollMonth);
-        return Responsentity
+        return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(payrollDto);
     }
