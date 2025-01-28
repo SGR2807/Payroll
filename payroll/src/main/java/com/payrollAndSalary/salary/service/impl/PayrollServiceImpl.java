@@ -86,6 +86,7 @@ public class PayrollServiceImpl implements IPayrollService {
 
     @Override
     public PayrollDto fetchPayrollDetails(Long employeeId, String month, int year) {
+        String mahina = month;
         Payroll foundPayroll = payrollRepository.findByEmployeeId(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Payroll", "employeeId",employeeId)
                 );
